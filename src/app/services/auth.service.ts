@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs/Observable';
 import { UserService } from './user.service';
-import { AppUser } from './Models/app-user';
+import { AppUser } from '../Models/app-user';
 import { ActivatedRoute } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Injectable } from '@angular/core';

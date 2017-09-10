@@ -1,0 +1,11 @@
+select{
+    padding: 3px 5px;
+}
+
+select option{color: #555;}
+
+.placeholder{color: grey;}
+
+button {
+    cursor: pointer;
+}

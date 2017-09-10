@@ -1,7 +1,9 @@
-import { AdminAuthGuard } from './admin-auth-guard.service';
-import { UserService } from './user.service';
-import { AuthGuard } from './auth-guard.service';
-import { AuthService } from './auth.service';
+import { ProductService } from './services/product.service';
+import { CategoryService } from './services/category.service';
+import { AdminAuthGuard } from './services/admin-auth-guard.service';
+import { UserService } from './services/user.service';
+import { AuthGuard } from './services/auth-guard.service';
+import { AuthService } from './services/auth.service';
 import { RouterModule } from '@angular/router';
 import { environment } from './../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
@@ -10,6 +12,8 @@ import { AngularFireModule} from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CustomFormsModule } from 'ng2-validation';
+import { DataTableModule } from 'angular-4-data-table';
 
 import { AppComponent } from './app.component';
 import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
@@ -23,6 +27,8 @@ import { AdminProductsComponent } from './admin/admin-products/admin-products.co
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { LoginComponent } from './login/login.component';
 import { ManageUsersComponent } from './manage-users/manage-users.component';
+import { ProductFormComponent } from './admin/product-form/product-form.component';
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -37,10 +43,14 @@ import { ManageUsersComponent } from './manage-users/manage-users.component';
     AdminProductsComponent,
     AdminOrdersComponent,
     LoginComponent,
-    ManageUsersComponent
+    ManageUsersComponent,
+    ProductFormComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    CustomFormsModule,
+    DataTableModule,
     NgbModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
@@ -56,6 +66,8 @@ import { ManageUsersComponent } from './manage-users/manage-users.component';
       { path: 'my/order', component: MyOrdersComponent, canActivate: [AuthGuard] },
 
       { path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuard, AdminAuthGuard] },
+      { path: 'admin/products/new', component: ProductFormComponent, canActivate: [AuthGuard, AdminAuthGuard] },
+      { path: 'admin/products/:id', component: ProductFormComponent, canActivate: [AuthGuard, AdminAuthGuard] },
       { path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AuthGuard, AdminAuthGuard] },
     ])
   ],
@@ -63,7 +75,9 @@ import { ManageUsersComponent } from './manage-users/manage-users.component';
     AuthService,
     AuthGuard,
     UserService,
-    AdminAuthGuard ], 
+    AdminAuthGuard,
+    CategoryService,
+    ProductService ], 
   bootstrap: [ 
     AppComponent ]
 })

@@ -1,0 +1,13 @@
+.tableImg {
+    width: 100px;
+    border-radius: 50%;
+}
+
+.imageColumn {
+    width: 120px;
+}
+
+tbody > tr > td {
+    line-height: 60px;
+    font-size: 17px;
+}
