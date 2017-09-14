@@ -1,8 +1,17 @@
 
 .card {
     margin-bottom: 20px;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
 }
 
 .card-footer {
     padding: 0;
+}
+
+.textInCart {
+    line-height: 35px;
+}
+
+button {
+    cursor: pointer;
 }
