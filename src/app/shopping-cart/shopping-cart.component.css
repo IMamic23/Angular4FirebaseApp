@@ -1,0 +1,15 @@
+button {
+    cursor: pointer;
+}
+
+.tableImg {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-size: cover;
+}
+
+.position-right {
+    position: absolute;
+    right: 10px;
+}
