@@ -1,6 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
+@import "~app/Icons/open-iconic-master/font/css/open-iconic-bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
 
 body {
     padding-top: 80px; 
+}
+
+.io {
+    font-size: 18px;
 }
